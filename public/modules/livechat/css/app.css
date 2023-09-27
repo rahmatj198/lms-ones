@@ -1,0 +1,41 @@
+.chat-box-area {
+    height: 88%;
+}
+.chat-box-area .chat-body {
+    height: 100% !important;
+}
+
+.chat-box-area .chatBox-message {
+    height: 100%;
+}
+
+.chat-box-area .chatBox-message .chatShow {
+    /* height: 100%; */
+}
+
+.chat-box-area .chat-list-wrapper {
+    height: 499px;
+}
+
+.chat-box-area .chat-list-wrapper .chat-list {
+    height: 100%;
+}
+
+.chat-box-area .chatBox-message {
+    max-height: 545px;
+}
+
+.chat-box-area .chatBox-message .chatShow {
+    height: 499px;
+}
+.chat-box-area .chatBox-message .chatShow:last-child.single-chat {
+    margin-bottom: 100px;
+}
+
+.chat-box-area .chatBox-message .chatShow .single-chat:last-child {
+    margin-bottom: 56px;
+}
+
+.chat-box-area .chat-list-wrapper .chat-list .single-chat:last-child {
+    margin-bottom: 74px;
+}
