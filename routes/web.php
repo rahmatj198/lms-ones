@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AuthenticationController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\DemoController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
  */
+
+// add by rahmat 
+Route::get('get-all-routes', [DemoController::class, 'index']);
+// end rahmat
 
 // Select data by ajax
 
