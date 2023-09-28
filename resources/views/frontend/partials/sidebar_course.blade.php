@@ -11,6 +11,17 @@
         <div class="accordion" id="accordionExample">
 
 
+            <!-- edit rahmat -->
+            <div class="accordion-item ot-checkbox-dropdown">
+                <h4 class="accordion-header" id="headingOne">
+                    <button class="accordion-button " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Lokasi
+                    </button>
+                </h4>
+            </div>
+            <!-- end rahmat -->
+
             <div class="accordion-item ot-checkbox-dropdown">
                 <h4 class="accordion-header" id="headingOne">
                     <button class="accordion-button " type="button" data-bs-toggle="collapse"
