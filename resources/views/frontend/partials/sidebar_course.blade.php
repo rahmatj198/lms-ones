@@ -252,13 +252,15 @@
                             <li>
                                 <label class="filter-options">
                                     <input class="ot-checkbox" type="checkbox" value="{{ @$location->code }}"
-                                        name="instructor[]" />
+                                        name="location[]" />
                                     <span class="value"> {{ @$location->name }} </span>
                                     <span class="ot-checkmark"></span>
                                 </label>
                             </li>
                         @endforeach
                     </ul>
+
+                    
 
                 </div>
 
