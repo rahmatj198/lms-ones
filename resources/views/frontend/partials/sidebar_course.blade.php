@@ -11,17 +11,6 @@
         <div class="accordion" id="accordionExample">
 
 
-            <!-- edit rahmat -->
-            <div class="accordion-item ot-checkbox-dropdown">
-                <h4 class="accordion-header" id="headingOne">
-                    <button class="accordion-button " type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Lokasi
-                    </button>
-                </h4>
-            </div>
-            <!-- end rahmat -->
-
             <div class="accordion-item ot-checkbox-dropdown">
                 <h4 class="accordion-header" id="headingOne">
                     <button class="accordion-button " type="button" data-bs-toggle="collapse"
@@ -244,6 +233,37 @@
 
                 </div>
             </div>
+
+
+            <!-- edit rahmat -->
+            <div class="accordion-item ot-checkbox-dropdown">
+                <h4 class="accordion-header" id="heading9">
+                    <button class="accordion-button " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
+                        Lokasi
+                    </button>
+                </h4>
+
+               <div id="collapse9" class="accordion-collapse collapse show" aria-labelledby="heading9"
+                    data-bs-parent="#heading9">
+
+                    <ul class="ot-checkbox-dropdown-list ">
+                        @foreach ($data['instructors'] as $instructor)
+                            <li>
+                                <label class="filter-options">
+                                    <input class="ot-checkbox" type="checkbox" value="{{ @$instructor->created_by }}"
+                                        name="instructor[]" />
+                                    <span class="value"> {{ @$instructor->instructor->name }} </span>
+                                    <span class="ot-checkmark"></span>
+                                </label>
+                            </li>
+                        @endforeach
+                    </ul>
+
+                </div>
+
+            </div>
+            <!-- end rahmat -->
 
 
         </div>
