@@ -240,7 +240,7 @@
                 <h4 class="accordion-header" id="heading9">
                     <button class="accordion-button " type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
-                        Lokasi
+                        Location
                     </button>
                 </h4>
 
@@ -248,12 +248,12 @@
                     data-bs-parent="#heading9">
 
                     <ul class="ot-checkbox-dropdown-list ">
-                        @foreach ($data['instructors'] as $instructor)
+                        @foreach ($data['locations'] as $location)
                             <li>
                                 <label class="filter-options">
-                                    <input class="ot-checkbox" type="checkbox" value="{{ @$instructor->created_by }}"
+                                    <input class="ot-checkbox" type="checkbox" value="{{ @$location->code }}"
                                         name="instructor[]" />
-                                    <span class="value"> {{ @$instructor->instructor->name }} </span>
+                                    <span class="value"> {{ @$location->name }} </span>
                                     <span class="ot-checkmark"></span>
                                 </label>
                             </li>
