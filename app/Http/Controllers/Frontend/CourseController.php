@@ -108,6 +108,15 @@ class CourseController extends Controller
             $data['categories'] = $search->clone()->select('course_category_id')->with('category:id,title')->groupBy('course_category_id')->get();
             $data['languages'] = $search->clone()->select('language')->with('lang:name,code')->groupBy('language')->get();
             $data['title'] = ___('frontend.Search Result');
+
+            //add by rahmat --location filter
+            $data['locations'] = [
+                ['code' => 'JKT', 'name' => 'Jakarta'],
+                ['code' => 'BDG', 'name' => 'Bandung'],
+                ['code' => 'SBY', 'name' => 'Surabaya'],
+            ];            
+             //end rahmat
+
             return view('frontend.course.courses', compact('data'));
         } catch (\Throwable $th) {
             return $this->responseWithError(___('alert.something_went_wrong_please_try_again'));
