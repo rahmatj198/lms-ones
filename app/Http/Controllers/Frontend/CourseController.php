@@ -39,8 +39,8 @@ class CourseController extends Controller
                     ['code' => 'BDG', 'name' => 'Bandung'],
                     ['code' => 'SBY', 'name' => 'Surabaya'],
                 ];            
-
             //end rahmat
+            
             return view('frontend.course.courses', compact('data')); // return success response from ApiReturnFormatTrait
         } catch (\Throwable $th) {
             return redirect()->route('home')->with('danger', ___('alert.something_went_wrong_please_try_again'));
