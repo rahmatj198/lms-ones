@@ -32,16 +32,15 @@ class CourseController extends Controller
             $data['instructors'] = $search->clone()->select('created_by')->with('instructor:name,id')->groupBy('created_by')->get();
             $data['categories'] = $search->clone()->select('course_category_id')->with('category:id,title')->groupBy('course_category_id')->get();
             $data['languages'] = $search->clone()->select('language')->with('lang:name,code')->groupBy('language')->get();
-            
-            $data['locations'] = $search->clone()->select('location_id')->with('location:name,id')->groupBy('created_by')->get();
-
-            dd($data['instructors']);
+                        
             //add by rahmat --location filter
+            $data['locations'] = $search->clone()->select('location_id')->with('location:name,id')->groupBy('created_by')->get();
+            /*
             $data['locations'] = [
                     ['code' => 'JKT', 'name' => 'Jakarta'],
                     ['code' => 'BDG', 'name' => 'Bandung'],
                     ['code' => 'SBY', 'name' => 'Surabaya'],
-                ];            
+                ];    */
             //end rahmat
             
             return view('frontend.course.courses', compact('data')); // return success response from ApiReturnFormatTrait
