@@ -91,6 +91,11 @@ class Course extends Model
         if (@$req->category) {
             $where[] = ['course_category_id', @$req->category];
         }
+        //add by rahmat
+        if (@$req->location) {
+            $where[] = ['id', @$req->location];
+        }        
+        //end rahmat
         if (@$req->status) {
             $where[] = ['status_id', @$req->status];
         }
@@ -131,6 +136,14 @@ class Course extends Model
     {
         return $this->belongsTo('App\Models\User', 'created_by');
     }
+
+    //add by rahmat
+    // course location    
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo('App\Models\Location', 'location_id');
+    }    
+    //end rahmat
 
     // relation with casted array
     public function users()
