@@ -34,7 +34,7 @@ class CourseController extends Controller
             $data['languages'] = $search->clone()->select('language')->with('lang:name,code')->groupBy('language')->get();
                         
             //add by rahmat --location filter
-            $data['locations'] = $search->clone()->select('location_id')->with('location:name,id')->groupBy('created_by')->get();
+            $data['locations'] = $search->clone()->select('location_id')->with('location:city,id')->groupBy('created_by')->get();
             /*
             $data['locations'] = [
                     ['code' => 'JKT', 'name' => 'Jakarta'],
