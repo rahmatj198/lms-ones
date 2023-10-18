@@ -1,5 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title', $data['title'] ?? 'Home')
+<!-- @section('title', $data['title'] ?? 'Home Coachingme') -->
+@section('title','Home Coachingme') 
 @section('content')
 
     @foreach ($data['section'] as $key => $section)
