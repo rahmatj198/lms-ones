@@ -57,7 +57,8 @@ class HomeController extends Controller
     {
 
         try {
-            $data['title'] = ___('frontend.Home'); // title
+            //$data['title'] = ___('frontend.Home'); // title
+            $data['title'] = 'Home - Coachingme';   //edit by rahmat
 
             if (Cache::has('sections')) {
                 $sections = Cache::get('sections');
