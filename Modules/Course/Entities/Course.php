@@ -93,7 +93,7 @@ class Course extends Model
         }
         //add by rahmat
         if (@$req->location) {
-            $where[] = ['id', @$req->location];
+            $where[] = ['location_id', @$req->location];
         }        
         //end rahmat
         if (@$req->status) {

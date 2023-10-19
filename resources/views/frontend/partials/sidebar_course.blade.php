@@ -253,7 +253,7 @@
                                 <label class="filter-options">
                                     <input class="ot-checkbox" type="checkbox" value="{{ @$location->id }}"
                                         name="location[]" />
-                                    <span class="value"> {{ @$location->city }} </span>
+                                    <span class="value"> {{ @$location->location->city }} </span>
                                     <span class="ot-checkmark"></span>
                                 </label>
                             </li>

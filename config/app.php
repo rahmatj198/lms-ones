@@ -16,7 +16,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-    'verifier' => 'https://www.onesttech.com/api/verifier',
+    // 'verifier' => 'https://www.onesttech.com/api/verifier', //edit by rahmat
 
     /*
     |--------------------------------------------------------------------------
