@@ -275,6 +275,12 @@ class Course extends Model
             $query->whereIn('level_id', explode(',', $req->course_level));
         }
 
+        //add by rahmat
+        if (@$req->locations) {
+            $query->whereIn('location_id', explode(',', $req->locations));
+        }
+        //end rahmat
+
         if (@$req->ratings) {
             $ratings = explode(',', $req->ratings);
             $query->where(function ($query) use ($ratings) {

@@ -44,9 +44,19 @@ window.filterCourseList = async () => {
             return $(this).val();
         })
         .get();
+
+    //add by rahmat
+    let locations = $('input[name="location[]"]:checked')
+        .map(function () {
+            return $(this).val();
+        })
+        .get();
+    //end rahmat
+
     if (category) {
         categories.push(category);
     }
+
     is_free = $('input[name="is_free"]:checked').val();
     is_free = is_free ? is_free : "";
 
@@ -58,8 +68,13 @@ window.filterCourseList = async () => {
     urlParams.set("ratings", ratings);
     urlParams.set("sortTag", sortTag);
     urlParams.set("is_free", is_free);
-    urlParams.set("search", search);
 
+    //add by rahmat
+    urlParams.set("locations", locations);     
+    //end rahmat
+
+    urlParams.set("search", search);
+    
     try {
         const response = await fetch(
             filterCourseRoute + "?" + urlParams.toString()
@@ -67,11 +82,13 @@ window.filterCourseList = async () => {
         if (response.ok) {
             const { result, message, data } = await response.json();
             $("#course-load").html(data?.content);
-            $("#showResults").html(data?.total);
+            $("#showResults").html(data?.total);   
+            $("#msg-tmp").html(urlParams.toString());            
+                    
         }
     } catch (error) {
         errorHandler(something_went_wrong);
-    }
+    } 
 };
 // end course list
 

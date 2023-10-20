@@ -74,6 +74,12 @@
                     <div class="item-list mb-24" id="course-load">
 
                     </div>
+
+                    <!-- message -->
+                    <div class="item-list mb-24" id="msg-tmp">
+                        message here
+                    </div>
+
                 </div>
             </div>
         </div>

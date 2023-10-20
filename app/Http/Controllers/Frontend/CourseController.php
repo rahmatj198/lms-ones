@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use Modules\Course\Interfaces\CourseCategoryInterface;
 use Modules\Course\Interfaces\CourseInterface;
 
+//add by rahmat
+use Illuminate\Support\Facades\Log;
+//end rahmat
+
 class CourseController extends Controller
 {
     use ApiReturnFormatTrait;
@@ -36,14 +40,7 @@ class CourseController extends Controller
             //add by rahmat --location filter
             $data['locations'] = $search->clone()->select('location_id')->with('location:id,city')->groupBy('location_id')->get();
            
-            //dd($data['categories']);
-            //dd($data['locations']);
-            /*
-            $data['locations'] = [
-                    ['code' => 'JKT', 'name' => 'Jakarta'],
-                    ['code' => 'BDG', 'name' => 'Bandung'],
-                    ['code' => 'SBY', 'name' => 'Surabaya'],
-                ];    */
+            Log::info($data['locations']); 
             //end rahmat
             
             return view('frontend.course.courses', compact('data')); // return success response from ApiReturnFormatTrait
@@ -83,10 +80,12 @@ class CourseController extends Controller
     // start ajax course list by filterCourse method
     public function filterCourse(Request $req)
     {
+        //Log::info("message");
         try {
             $data = [];
             $data['courses'] = $this->course->model()->active()->visible()->filter($req)->sort($req)->paginate(10);
             $html = view('frontend.partials.render.course_list', compact('data'))->render();
+           
             $content = [
                 'content' => $html,
                 'total' => '<p class="page-total">' . ___('frontend.Showing') . ' <span class="text-tertiary">' . $data['courses']->lastItem() . '</span> ' . ___('frontend.of total') . ' <span class="text-tertiary">' . $data['courses']->total() . ' </span> ' . ___('course.Courses') . ' </p>',
@@ -112,15 +111,11 @@ class CourseController extends Controller
             $data['instructors'] = $search->clone()->select('created_by')->with('instructor:name,id')->groupBy('created_by')->get();
             $data['categories'] = $search->clone()->select('course_category_id')->with('category:id,title')->groupBy('course_category_id')->get();
             $data['languages'] = $search->clone()->select('language')->with('lang:name,code')->groupBy('language')->get();
-            $data['title'] = ___('frontend.Search Result');
 
-            //add by rahmat --location filter
-            $data['locations'] = [
-                ['code' => 'JKT', 'name' => 'Jakarta'],
-                ['code' => 'BDG', 'name' => 'Bandung'],
-                ['code' => 'SBY', 'name' => 'Surabaya'],
-            ];            
-             //end rahmat
+            //add by rahmat
+            $data['locations'] = $search->clone()->select('location_id')->with('location:id,city')->groupBy('location_id')->get();
+            //end rahmat
+            $data['title'] = ___('frontend.Search Result');
 
             return view('frontend.course.courses', compact('data'));
         } catch (\Throwable $th) {

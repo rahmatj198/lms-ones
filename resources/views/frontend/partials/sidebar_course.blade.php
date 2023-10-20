@@ -251,7 +251,7 @@
                         @foreach ($data['locations'] as $location)
                             <li>
                                 <label class="filter-options">
-                                    <input class="ot-checkbox" type="checkbox" value="{{ @$location->id }}"
+                                    <input class="ot-checkbox" type="checkbox" value="{{ @$location->location_id }}"
                                         name="location[]" />
                                     <span class="value"> {{ @$location->location->city }} </span>
                                     <span class="ot-checkmark"></span>
