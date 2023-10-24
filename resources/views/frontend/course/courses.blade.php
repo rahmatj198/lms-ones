@@ -77,7 +77,7 @@
 
                     <!-- message -->
                     <div class="item-list mb-24" id="msg-tmp">
-                        message here
+                        <!-- message here -->
                     </div>
 
                 </div>

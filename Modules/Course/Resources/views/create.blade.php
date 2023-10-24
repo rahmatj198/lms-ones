@@ -115,7 +115,7 @@
                                                 {{-- end title  --}}
 
                                                 {{-- start course type  --}}
-                                                <div class="col-xl-4 col-md-12 mb-3">
+                                                <div class="col-xl-3 col-md-6 mb-3">
                                                     <label for="course_type"
                                                         class="form-label ">{{ ___('label.Course Type') }}
                                                         <span class="fillable">*</span></label>
@@ -138,7 +138,7 @@
                                                 {{-- end course type  --}}
 
                                                 {{-- start cinstructor  --}}
-                                                <div class="col-xl-4 col-md-12 mb-3">
+                                                <div class="col-xl-3 col-md-6 mb-3">
                                                     <label for="instructor"
                                                         class="form-label ">{{ ___('common.Instructor') }}
                                                         <span class="fillable">*</span></label>
@@ -159,7 +159,7 @@
                                                 {{-- end cinstructor  --}}
 
                                                 {{-- start course level  --}}
-                                                <div class="col-xl-4 col-md-12 mb-3">
+                                                <div class="col-xl-3 col-md-6 mb-3">
                                                     <label for="course_level" class="form-label ">{{ ___('label.Level') }}
                                                         <span class="fillable">*</span></label>
                                                     <select
@@ -178,6 +178,29 @@
                                                     @enderror
                                                 </div>
                                                 {{-- end course level  --}}
+
+                                                {{-- start location  --}}
+
+                                                <div class="col-xl-3 col-md-6 mb-3">
+                                                    <label for="location_id"
+                                                        class="form-label ">{{ ___('label.Location') }}
+                                                        <span class="fillable">*</span></label>
+                                                    <select
+                                                        class="form-select ot-input select2 @error('location') is-invalid @enderror"
+                                                        id="location" name="location">
+                                                        @foreach ($data['locations'] as $location)
+                                                            <option value="{{ $location->id }}"
+                                                                {{ old('location') == $location->id ? ' selected="selected"' : '' }}>
+                                                                {{ $location->city }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @error('location')
+                                                        <div id="validationServer04Feedback" class="invalid-feedback">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                                {{-- end location  --}}
 
                                                 {{-- start short description  --}}
                                                 <div class="col-xl-12 col-md-12 mb-3">

@@ -83,7 +83,7 @@ window.filterCourseList = async () => {
             const { result, message, data } = await response.json();
             $("#course-load").html(data?.content);
             $("#showResults").html(data?.total);   
-            $("#msg-tmp").html(urlParams.toString());            
+            //$("#msg-tmp").html(urlParams.toString());            
                     
         }
     } catch (error) {

@@ -10,6 +10,8 @@ use Modules\Course\Http\Requests\CourseRequest;
 use Modules\Course\Interfaces\CourseCategoryInterface;
 use Modules\Course\Interfaces\CourseInterface;
 
+use Illuminate\Support\Facades\DB; //add by rahmat
+
 class CourseController extends Controller
 {
     // constructor injection
@@ -53,6 +55,9 @@ class CourseController extends Controller
         try {
             $data['categories'] = $this->courseCategory->model()->active()->where('parent_id', null)->get(); // data
             $data['languages'] = $this->language->all(); // data
+            //add by rahmat
+            $data['locations'] = DB::table('course_locations')->where('status_id',1)->get();
+            //end rahmat
             $data['title'] = ___('course.Create Course'); // title
             return view('course::create', compact('data')); // view
         } catch (\Throwable $th) {
