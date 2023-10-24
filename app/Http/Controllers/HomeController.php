@@ -24,9 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        /*
         if (!Schema::hasTable('settings') && !Schema::hasTable('users')  ) {
             abort(400);
-        } 
+        }  */
         return view('home');
     }
 }
