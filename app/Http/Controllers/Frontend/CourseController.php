@@ -39,8 +39,9 @@ class CourseController extends Controller
                         
             //add by rahmat --location filter
             $data['locations'] = $search->clone()->select('location_id')->with('location:id,city')->groupBy('location_id')->get();
-           
-            Log::info($data['locations']); 
+            $data['types'] = $search->clone()->select('type_id')->with('type:id,name')->groupBy('type_id')->get();
+            //Log::info($data['locations']); 
+            //Log::info($data['types']); 
             //end rahmat
             
             return view('frontend.course.courses', compact('data')); // return success response from ApiReturnFormatTrait

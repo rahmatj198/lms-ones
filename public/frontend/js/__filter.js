@@ -51,6 +51,11 @@ window.filterCourseList = async () => {
             return $(this).val();
         })
         .get();
+    let types = $('input[name="type[]"]:checked')
+        .map(function () {
+            return $(this).val();
+        })
+        .get();        
     //end rahmat
 
     if (category) {
@@ -71,6 +76,7 @@ window.filterCourseList = async () => {
 
     //add by rahmat
     urlParams.set("locations", locations);     
+    urlParams.set("types", types);
     //end rahmat
 
     urlParams.set("search", search);
@@ -83,7 +89,7 @@ window.filterCourseList = async () => {
             const { result, message, data } = await response.json();
             $("#course-load").html(data?.content);
             $("#showResults").html(data?.total);   
-            //$("#msg-tmp").html(urlParams.toString());            
+            $("#msg-tmp").html(urlParams.toString());            
                     
         }
     } catch (error) {

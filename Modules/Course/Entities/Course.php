@@ -26,6 +26,8 @@ class Course extends Model
         'short_description',
         'description',
         'course_category_id',
+        'type',
+        'location_id',
         'status',
         'created_by',
         'updated_by',
@@ -94,8 +96,13 @@ class Course extends Model
         //add by rahmat
         if (@$req->location) {
             $where[] = ['location_id', @$req->location];
-        }        
+        }       
+        //elearning, bootcamp, etc
+        if (@$req->type) {
+            $where[] = ['type', @$req->type];
+        }           
         //end rahmat
+
         if (@$req->status) {
             $where[] = ['status_id', @$req->status];
         }
@@ -143,6 +150,11 @@ class Course extends Model
     {
         return $this->belongsTo('App\Models\Location', 'location_id');
     }    
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo('App\Models\Type', 'type_id');
+    }    
+
     //end rahmat
 
     // relation with casted array
@@ -279,6 +291,9 @@ class Course extends Model
         if (@$req->locations) {
             $query->whereIn('location_id', explode(',', $req->locations));
         }
+        if (@$req->types) {
+            $query->whereIn('type_id', explode(',', $req->types));
+        }        
         //end rahmat
 
         if (@$req->ratings) {

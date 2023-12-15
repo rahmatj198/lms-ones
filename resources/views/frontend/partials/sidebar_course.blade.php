@@ -265,6 +265,36 @@
                 </div>
 
             </div>
+
+            <div class="accordion-item ot-checkbox-dropdown">
+                <h4 class="accordion-header" id="heading9">
+                    <button class="accordion-button " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
+                        Type
+                    </button>
+                </h4>
+
+               <div id="collapse9" class="accordion-collapse collapse show" aria-labelledby="heading9"
+                    data-bs-parent="#heading9">
+
+                    <ul class="ot-checkbox-dropdown-list ">
+                        @foreach ($data['types'] as $type)
+                            <li>
+                                <label class="filter-options">
+                                    <input class="ot-checkbox" type="checkbox" value="{{ @$type->type_id }}"
+                                        name="type[]" />
+                                    <span class="value"> {{ @$type->type->name }} </span>
+                                    <span class="ot-checkmark"></span>
+                                </label>
+                            </li>
+                        @endforeach
+                    </ul>
+
+                    
+
+                </div>
+
+            </div>            
             <!-- end rahmat -->
 
 
