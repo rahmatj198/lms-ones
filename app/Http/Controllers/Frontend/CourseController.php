@@ -114,7 +114,8 @@ class CourseController extends Controller
             $data['languages'] = $search->clone()->select('language')->with('lang:name,code')->groupBy('language')->get();
 
             //add by rahmat
-            $data['locations'] = $search->clone()->select('location_id')->with('location:id,city')->groupBy('location_id')->get();
+            $data['locations'] = $search->clone()->select('location_id')->with('location:id,city')->groupBy('location_id')->get();            
+            $data['types'] = $search->clone()->select('type_id')->with('type:id,name')->groupBy('type_id')->get();            
             //end rahmat
             $data['title'] = ___('frontend.Search Result');
 

@@ -8,8 +8,9 @@
                             <div class="menu-wrapper d-flex align-items-center justify-content-between">
                                 <!-- Logo -->
                                 <div class="logo d-none d-sm-block">
-                                     <!-- {{ lightLogo() }} -->
+                                     <!-- modify by rahmat {{ lightLogo() }} -->
                                      <a href=""><img src="frontend/default/logo.png"></a>
+                                     <!-- end rahmat-->
                                 </div>
                                 <!-- Logo Mobile-->
                                 <div class="logo d-block d-sm-none">

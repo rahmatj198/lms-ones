@@ -8,8 +8,9 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
                         <div class="footer-caption mb-50">
                             <div class="logo wow fadeInUp" data-wow-delay="0.0s">
-                                <!-- {{ lightLogo() }} -->
+                                <!--modify by rahmat {{ lightLogo() }} -->
                                 <a href=""><img src="frontend/default/logo.png"></a>
+                                <!-- end rahmat-->
                                 <p class="pera2 wow fadeInUp mt-25" data-wow-delay="0.1s">
                                     <?= @setting('application_details') ?>
                                 </p>
